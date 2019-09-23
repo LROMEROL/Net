@@ -1,5 +1,5 @@
 
-int nDots = 20;
+int nDots = 60;
 PVector[] dots;
 
 void setup () {
@@ -14,7 +14,7 @@ void setup () {
 }
 
 void draw () {
-  background(255);
+  background(0);
 
   updateDots();
   renderDots();
@@ -22,7 +22,7 @@ void draw () {
 
 void updateDots() {
   for (int i = 0; i < nDots; i++) {
-    PVector offset = new PVector(random(-3, 3), random(-3, 3));
+    PVector offset = new PVector(random(-3, 6), random(-3, 6));
     dots[i].add(offset);
 
     if (dots[i].x < 0) { 
@@ -43,17 +43,17 @@ void updateDots() {
 void renderDots() {
   noStroke();
   for (int i = 0; i < nDots; i++) {
-    fill(0);
+    fill(250,0,40);
     ellipse(dots[i].x, dots[i].y, 6, 6);
 
-    fill(127, 100);
+    fill(130, 100);
     ellipse(dots[i].x, dots[i].y, 33, 33);
   }
-  stroke(0);
+  stroke(150,0,90);
   for (int i = 0; i < nDots; i++) {
     for (int j = i + 1; j < nDots; j++) {
       float d = dist(dots[i].x, dots[i].y, dots[j].x, dots[j].y);
-      if (d<=100){
+      if (d<=85){
       line(dots[i].x, dots[i].y, dots[j].x, dots[j].y);
       }
     }
